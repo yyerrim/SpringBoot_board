@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="/">Home</a> -->
+        <a th:class="@{|nav-link ${home}|}" href="/">Home</a>
+        <!-- HomeController.java model.addAttribute("home", "active"); 추가 -->
+      </li>
+      <li class="nav-item">
+        <!-- <a class="nav-link" href="/board/list">Board</a> -->
+        <a th:class="@{|nav-link ${board}|}" href="/board/list">Board</a>
+        <!-- BoardController.java model.addAttribute("board", "active"); 추가 -->
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/map">Map</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/contact">Contact</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!--
+<script>
+  // DOMContentLoaded : DOM이 완전히 로드된 다음 코드 실행
+  document.addEventListener('DOMContentLoaded', function() {
+    // 현재 페이지의 URL 경로를 가져옵니다.
+    const currentPath = window.location.pathname;
+
+    // 모든 네비게이션 링크 요소를 가져옵니다.
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // 각 네비게이션 링크를 순회하며 현재 경로와 비교합니다.
+    navLinks.forEach(function(link) {
+      // 링크의 href 속성 값을 가져옵니다.
+      const linkPath = link.getAttribute('href');
+
+      // 현재 경로와 링크의 href 값이 일치하면 active 클래스를 추가합니다.
+      if (currentPath === linkPath) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+-->
