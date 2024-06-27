@@ -17,6 +17,10 @@
         <h5 class="card-title" th:text="${board.title}"></h5>
         <h6 class="card-subtitle mb-2 text-muted" th:text="${board.userId}"></h6>
         <p class="card-text" th:text="${board.content}"></p>
+
+        <!-- Thymeleaf의 반복문 사용 방법 -->
+        <img th:each="fileInfo : ${board.fileInfos}" th:src="@{|/download?fileId=${fileInfo.id}|}">
+
       </div>
     </div>
   </div>
@@ -34,6 +38,19 @@
       </li>
     </ul>
   </div>
+
+  <!-- 댓글 -->
+  <div class="container mt-5">
+    <form action="/comment/write" method="post">
+      <input type="text" name="text">
+      <input type="hidden" name="boardId" th:value="${board.id}">
+      <button>등록</button>
+    </form>
+    <ul>
+      <li th:each="c : ${board.comments}" th:text="${c.text}"></li>
+    </ul>
+  </div>
+
 
   <script>
     document.querySelector('#delete').addEventListener('click', (e) => {
